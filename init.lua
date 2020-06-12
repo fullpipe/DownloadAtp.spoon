@@ -30,9 +30,6 @@ function obj:init()
 
                 for l in html:gmatch("<a href=\"([^\"]-)\"[^>]*>Download</a>") do
                     local fileName = l:match "^.+/(.-.mp3).-$"
-                    print(fileName)
-                    print(hs.fs.displayName(self.downloadDir .. "/" .. fileName))
-                    --print(hs.fs.displayName("/Volumes/U5/Datacasts/"))
                     if hs.fs.displayName(self.downloadDir .. "/" .. fileName) ~= nil then
                         self.log.i("Podcast " .. fileName .." already exists")
                     else
